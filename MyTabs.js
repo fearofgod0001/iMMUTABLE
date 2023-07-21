@@ -46,7 +46,7 @@ export default function MyTabs() {
           headerShown: false,
           tabBarIcon: ({ color, size }) => (
             <FontAwesome5 name={"rocketchat"} color={color} size={size} />
-          ),
+          ),s
         }}
       />
       <Tab.Screen name="Setting" component={Setting}
@@ -68,8 +68,8 @@ function HomeMenu({ navigation }) {
   //------AWS로 구매한 도메인 이름을 넣어준다!------
   useFocusEffect(
       React.useCallback(() => {
-          webViewRef.current.injectJavaScript('location.href="' + 'http://google.co.kr' + '"');
-          console.log("useFocusEffect : google.co.kr");
+          webViewRef.current.injectJavaScript('location.href="' + 'http://proj-immutable.store:8111' + '"');
+          console.log("useFocusEffect : proj-immutable.store:8111");
           setLoading(false);
       }, [])
   );
@@ -83,7 +83,7 @@ function HomeMenu({ navigation }) {
           <WebView
               ref={webViewRef}
               onLoad={() => setLoading(false)}
-              source={{ uri: 'http://google.co.kr' }}
+              source={{ uri: 'http://proj-immutable.store:8111' }}
           />
           {loading && <LoadAnimation />}
       </SafeAreaView>
